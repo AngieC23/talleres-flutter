@@ -9,11 +9,12 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Dashboard Principal')),
       drawer: const CustomDrawer(),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Center(
+      body: const Center(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
           child: Text(
-            'Welcome to the Home Dashboard',
+            'El flujo principal ahora vive en la pantalla de Login JWT y en la vista de evidencia local.',
+            textAlign: TextAlign.center,
             style: TextStyle(fontSize: 18),
           ),
         ),

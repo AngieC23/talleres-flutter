@@ -57,10 +57,7 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 4),
-                Text(
-                  'Taller Moviles',
-                  style: TextStyle(color: Colors.white70),
-                ),
+                Text('Taller Moviles', style: TextStyle(color: Colors.white70)),
               ],
             ),
           ),
@@ -68,16 +65,27 @@ class CustomDrawer extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(16, 10, 16, 6),
             child: Text(
               'Navegacion Principal',
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black54,
+              ),
             ),
           ),
           _item(
             context,
             title: 'Inicio',
-            subtitle: '',
-            icon: Icons.home,
-            iconColor: Colors.blue,
+            subtitle: 'Login JWT / evidencia',
+            icon: Icons.lock_person_outlined,
+            iconColor: Colors.teal,
             route: '/',
+          ),
+          _item(
+            context,
+            title: 'Evidencia local',
+            subtitle: 'SharedPreferences y SecureStorage',
+            icon: Icons.storage_outlined,
+            iconColor: Colors.green,
+            route: '/evidence',
           ),
           _item(
             context,
@@ -108,7 +116,10 @@ class CustomDrawer extends StatelessWidget {
             padding: EdgeInsets.fromLTRB(16, 10, 16, 6),
             child: Text(
               'Funcionalidades Avanzadas',
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black54),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black54,
+              ),
             ),
           ),
           _item(
@@ -146,7 +157,10 @@ class CustomDrawer extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 4),
-                Text('Desarrollo Movil · UCEVA', style: TextStyle(color: Colors.black54)),
+                Text(
+                  'Desarrollo Movil · UCEVA',
+                  style: TextStyle(color: Colors.black54),
+                ),
                 SizedBox(height: 6),
                 Text('Flutter & Dart', style: TextStyle(color: Colors.black45)),
               ],
