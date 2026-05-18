@@ -1,24 +1,46 @@
-import 'package:taller1_app/routes/app_router.dart';
 import 'package:flutter/material.dart';
-import 'themes/app_theme.dart'; // Importar el tema
+import 'package:taller1_app/routes/app_router.dart';
+
+import 'auth/auth_controller.dart';
+import 'auth/auth_scope.dart';
+import 'themes/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late final AuthController _authController;
+
+  @override
+  void initState() {
+    super.initState();
+    _authController = AuthController();
+    _authController.loadStoredSession();
+  }
+
+  @override
+  void dispose() {
+    _authController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    // build es un metodo que se ejecuta cada vez que se necesita redibujar la pantalla
-    //go_router para navegacion
-    return MaterialApp.router(
-      theme:
-          AppTheme.lightTheme, //thema personalizado y permamente en toda la app
-      title:
-          'Flutter - UCEVA', // Usa el tema personalizado, no se muestra el tema por defecto. esto se visualiza en toda la app
-      routerConfig: appRouter, // Usa el router configurado
+    return AuthScope(
+      controller: _authController,
+      child: MaterialApp.router(
+        theme: AppTheme.lightTheme,
+        title: 'Flutter - UCEVA',
+        routerConfig: appRouter,
+      ),
     );
   }
 }
